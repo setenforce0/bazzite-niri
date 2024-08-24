@@ -12,7 +12,7 @@ ARG SHA_HEAD_SHORT="${SHA_HEAD_SHORT}"
 ARG VERSION_TAG="${VERSION_TAG}"
 ARG VERSION_PRETTY="${VERSION_PRETTY}"
 
-FROM ghcr.io/ublue-os/fsync-kernel:${FEDORA_MAJOR_VERSION}-${KERNEL_VERSION} AS fsync
+FROM ghcr.io/ublue-os/${KERNEL_FLAVOR}-kernel:${FEDORA_MAJOR_VERSION}-${KERNEL_VERSION} AS fsync
 FROM ghcr.io/ublue-os/akmods:${KERNEL_FLAVOR}-${FEDORA_MAJOR_VERSION}-${KERNEL_VERSION} AS akmods
 FROM ghcr.io/ublue-os/akmods-extra:${KERNEL_FLAVOR}-${FEDORA_MAJOR_VERSION}-${KERNEL_VERSION} AS akmods-extra
 
@@ -265,7 +265,6 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         /tmp/akmods-rpms/kmods/*openrazer*.rpm \
         /tmp/akmods-rpms/kmods/*v4l2loopback*.rpm \
         /tmp/akmods-rpms/kmods/*wl*.rpm \
-        /tmp/akmods-rpms/kmods/*evdi*.rpm \
         /tmp/akmods-rpms/kmods/*framework-laptop*.rpm \
         /tmp/akmods-extra-rpms/kmods/*gcadapter_oc*.rpm \
         /tmp/akmods-extra-rpms/kmods/*nct6687*.rpm \
@@ -274,7 +273,8 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         /tmp/akmods-extra-rpms/kmods/*ayaneo-platform*.rpm \
         /tmp/akmods-extra-rpms/kmods/*ayn-platform*.rpm \
         /tmp/akmods-extra-rpms/kmods/*bmi260*.rpm \
-        /tmp/akmods-extra-rpms/kmods/*ryzen-smu*.rpm && \
+        /tmp/akmods-extra-rpms/kmods/*ryzen-smu*.rpm \
+        /tmp/akmods-extra-rpms/kmods/*evdi*.rpm && \
     sed -i 's@enabled=1@enabled=0@g' /etc/yum.repos.d/negativo17-fedora-multimedia.repo && \
     rpm-ostree override replace \
         --experimental \
@@ -395,8 +395,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         ydotool \
         yafti \
         stress-ng \
-        lsb_release \
-        fuse && \
+        lsb_release && \
     rpm-ostree install \
         ublue-update && \
     mkdir -p /etc/xdg/autostart && \
@@ -527,7 +526,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
             fcitx5-chinese-addons \
             fcitx5-hangul \
             ptyxis && \
-        git clone https://github.com/catsout/wallpaper-engine-kde-plugin.git --depth 1 --branch qt6 /tmp/wallpaper-engine-kde-plugin && \
+        git clone https://github.com/catsout/wallpaper-engine-kde-plugin.git --depth 1 --branch main /tmp/wallpaper-engine-kde-plugin && \
         kpackagetool6 --type=Plasma/Wallpaper --global --install /tmp/wallpaper-engine-kde-plugin/plugin && \
         rm -rf /tmp/wallpaper-engine-kde-plugin && \
         sed -i '/<entry name="launchers" type="StringList">/,/<\/entry>/ s/<default>[^<]*<\/default>/<default>preferred:\/\/browser,applications:steam.desktop,applications:net.lutris.Lutris.desktop,applications:org.gnome.Ptyxis.desktop,applications:org.kde.discover.desktop,preferred:\/\/filemanager<\/default>/' /usr/share/plasma/plasmoids/org.kde.plasma.taskmanager/contents/config/main.xml && \
