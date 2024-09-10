@@ -2,17 +2,19 @@
 <!--{"url_discourse": "https://universal-blue.discourse.group/docs?topic=161", "fetched_at": "2024-09-03 16:43:11.636024+00:00"}-->
 <!-- ANCHOR_END: METADATA -->
 
+>This method is only if you forgot your current user password! Changing your current password should be done through the desktop environment.
+
 >Follow this guide **at your own discretion** because you can break your system attempting any of this.
 
-![Edit the command for the latest boot entry|690x351](https://universal-blue.discourse.group/uploads/short-url/3DKuxnu44jDcrwx30k2mxFXjLXD.png)
+![Edit the command for the latest boot entry|690x351](../img/Edit_the_command_for_the_latest_boot_entry.png)
 
 Reboot your device and edit the last deployment by presssing <kbd>E</kbd> on your keyboard.
 
-![Boot with init=/bin/bash|689x359](https://universal-blue.discourse.group/uploads/short-url/6cMudm3PEkBwYakT3FQOlpMtkxF.jpeg)
+![Boot with init=/bin/bash|689x359](../img/Boot_with_init_bin_bash.jpeg)
 
 Boot with `init=/bin/bash` on the kernel command line (e.g. edit GRUB prompt.)
 
-![Reboot|689x359](https://universal-blue.discourse.group/uploads/short-url/1gpqkxAiCQqofTEYWIL7XPONGKr.jpeg)
+![Reboot|689x359](../img/Reset_Password_Reboot.jpeg)
 
 Continue boot process with <kbd>Ctrl</kbd>+<kbd>X</kbd>
 
@@ -38,7 +40,7 @@ sync
 /sbin/reboot -ff
 ```
 
-![Commands|690x334](https://universal-blue.discourse.group/uploads/short-url/v3mTMw4ZmaiMU2FuIIIt2gKnKuw.png)
+![Commands|690x334](../img/Reset_Password_Commands.png)
 
 Your user password should now be reset.
 

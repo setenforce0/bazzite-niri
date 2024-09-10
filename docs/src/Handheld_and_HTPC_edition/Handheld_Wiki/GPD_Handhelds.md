@@ -4,10 +4,13 @@
 
 # GPD Win 4
 
-![gpdwin4|690x328, 100%](https://universal-blue.discourse.group/uploads/short-url/8vl2Px0U9256prp9Qra7HJVi0Fx.jpeg)
-
+![gpdwin4|690x328, 100%](../../img/gpdwin4.jpeg)
 
 **Status**: Gold
+
+## Installing Bazzite
+
+Read the [**Installing Bazzite on Handheld PCs documentation**](https://ublue-os.github.io/bazzite/General/Installation_Guide/Installing_Bazzite_for_Handheld_PCs/).
 
 ## Post-Installation Setup
 
@@ -46,10 +49,14 @@ For more information, check out the [GPD Win Tips and Tricks guide](https://gith
 
 # GPD Win Max 2
 
-![placeholder_gpdwinmax2|407x312, 100%](https://universal-blue.discourse.group/uploads/short-url/9H5uMyTC4BHZezLJQbOyuqcLJao.png)
+![placeholder_gpdwinmax2|407x312, 100%](../../img/GPD_Win_Max_2.png)
 
 
 **Status**: Gold
+
+## Installing Bazzite
+
+Read the [**Installing Bazzite on Handheld PCs documentation**](https://ublue-os.github.io/bazzite/General/Installation_Guide/Installing_Bazzite_for_Handheld_PCs/).
 
 ## Post-Installation Setup
 - Complete the Bazzite Portal
@@ -91,9 +98,13 @@ For more information, check out the [GPD Win Tips and Tricks guide](https://gith
 
 <hr>
 
-# TDP Controls
+# Additional Information
 
-![TDP|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/ngp2BrayDZY50JGSQRDaJadXoke.jpeg)
+This applies to most handhelds running Bazzite.
+
+## TDP Controls
+
+![TDP|690x431, 75%](../../img/TDP.jpeg)
 
 There are a few options for TDP Controls that work with Bazzite:
 
@@ -103,16 +114,16 @@ There are a few options for TDP Controls that work with Bazzite:
   * Also has a [graphical application](https://github.com/aarron-lee/SimpleDeckyTDP-Desktop), but needs to be manually installed.
 * [PowerControl](https://github.com/mengmeet/PowerControl) supports TDP, GPU, and fan controls on select devices.
 
-# How do I open the HHD Overlay?
+## How do I open the HHD Overlay?
 
-![Overlay|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/lmBCzvMHEetrpzRze6RjfSejrZq.jpeg)
-![Emulation Mode|690x434, 75%](https://universal-blue.discourse.group/uploads/short-url/sgYhUF5zpb6jFD2rtzTCxdSU203.jpeg)
+![Overlay|690x431, 75%](../../img/HHD_Overlay.jpeg)
+![Emulation Mode|690x434, 75%](../../img/HHD_Emulation_Mode.jpeg)
 
 Press, hold, or double-tap the Quick Access Menu button.
 
 >**Note**: GPD devices do not support double-tapping the QAM button!
 
-# Controller Information
+## Controller Information
 
 For most handheld hardware, besides the Steam Deck, emulation of a DualSense controller is used for full functionality. Double tap or hold the side menu button to access settings for controller emulation including switching to an Xbox controller with reduced functionality.
 
@@ -120,15 +131,15 @@ If your device has paddles, you will want to use the DualSense Edge controller. 
 
 Some games and emulators may need Steam Input **disabled** to work correctly with your controls.
 
-## Desktop Controls
+### Desktop Controls
 
 Desktop Mode Controller Layout:  It may not exist by default if Steam doesn't setup your handheld controller properly.  This can be fixed in Steam's controller settings.
 
-![desktop_controls_step_1|588x500, 75%](https://universal-blue.discourse.group/uploads/short-url/tGD8H8twME3FF862sBVJiwr3zvT.png)
+![desktop_controls_step_1|588x500, 75%](../../img/handheld_desktop_controls_1.png)
 
-![desktop_controls_step_2|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/q6X1XGTz9cizu5i5oXudSZbQaqg.png)
+![desktop_controls_step_2|690x431, 75%](../../img/handheld_desktop_controls_2.png)
 
-![desktop_controls_step_3|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/wEaGGVTtdZm3Aln3H3SaXI0rBLt.jpeg)
+![desktop_controls_step_3|690x431, 75%](../../img/handheld_desktop_controls_3.jpeg)
 
 Make sure to **apply** the desktop controls when you select them.
 
@@ -138,6 +149,6 @@ Make sure to **apply** the desktop controls when you select them.
 
 This page is a **wiki**, edit it to add any relevant information you may have regarding the handheld and your experience with Bazzite on it.  Make sure to follow proper [documentation guidelines](https://universal-blue.discourse.group/docs?topic=890) and [contributing guidelines](https://universal-blue.discourse.group/docs?topic=81) before adding any edits.
 
-**See also**: [Steam Gaming Mode Overview](https://universal-blue.discourse.group/docs?topic=37)
+**See also**: [Steam Gaming Mode Overview](../Steam_Gaming_Mode.md)
 
-**<-- Back to [Handheld Wiki](https://universal-blue.discourse.group/docs?topic=1038)**
+**<-- Back to [Handheld Wiki](./index.md)**

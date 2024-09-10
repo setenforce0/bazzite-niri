@@ -1,6 +1,7 @@
 ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-kinoite}"
 ARG BASE_IMAGE_FLAVOR="${BASE_IMAGE_FLAVOR:-main}"
 ARG IMAGE_FLAVOR="${IMAGE_FLAVOR:-main}"
+ARG NVIDIA_FLAVOR=${NVIDIA_FLAVOR:-nvidia}""
 ARG KERNEL_FLAVOR="${KERNEL_FLAVOR:-fsync}"
 ARG KERNEL_VERSION="${KERNEL_VERSION:-6.10.4-201.fsync.fc40.x86_64}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
@@ -21,6 +22,7 @@ FROM ${BASE_IMAGE}:${FEDORA_MAJOR_VERSION} AS bazzite
 ARG IMAGE_NAME="${IMAGE_NAME:-bazzite}"
 ARG IMAGE_VENDOR="${IMAGE_VENDOR:-ublue-os}"
 ARG IMAGE_FLAVOR="${IMAGE_FLAVOR:-main}"
+ARG NVIDIA_FLAVOR=${NVIDIA_FLAVOR:-nvidia}""
 ARG KERNEL_FLAVOR="${KERNEL_FLAVOR:-fsync}"
 ARG KERNEL_VERSION="${KERNEL_VERSION:-6.10.4-201.fsync.fc40.x86_64}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
@@ -161,6 +163,16 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     --from repo=updates \
         libv4l \
         || true && \
+    if grep -q "kinoite" <<< "${BASE_IMAGE_NAME}"; then \
+        rpm-ostree override replace \
+        --experimental \
+        --from repo=updates \
+            qt6-qtbase \
+            qt6-qtbase-common \
+            qt6-qtbase-mysql \
+            qt6-qtbase-gui \
+            || true \
+    ; fi && \
     rpm-ostree override remove \
         glibc32 \
         || true && \
@@ -408,7 +420,6 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     chmod +x /usr/bin/installcab && \
     curl -Lo /usr/bin/install-mf-wmv https://github.com/KyleGospo/steam-proton-mf-wmv/blob/master/install-mf-wmv.sh && \
     chmod +x /usr/bin/install-mf-wmv && \
-    curl -Lo /usr/share/thumbnailers/exe-thumbnailer.thumbnailer https://raw.githubusercontent.com/jlu5/icoextract/master/exe-thumbnailer.thumbnailer && \
     /usr/libexec/containerbuild/cleanup.sh && \
     ostree container commit
 
@@ -466,6 +477,8 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         wine-core.i686 \
         wine-pulseaudio.x86_64 \
         wine-pulseaudio.i686 \
+        libFAudio.x86_64 \
+        libFAudio.i686 \
         winetricks \
         protontricks \
         latencyflex-vulkan-layer \
@@ -581,6 +594,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         curl -s https://api.github.com/repos/domferr/tilingshell/releases/latest | \
             jq -r '.assets | sort_by(.created_at) | .[] | select (.name|test("^tilingshell@.*zip$")) | .browser_download_url' | \
             wget -qi - -O /tmp/tilingshell/tilingshell@ferrarodomenico.com.zip && \
+        curl -Lo /usr/share/thumbnailers/exe-thumbnailer.thumbnailer https://raw.githubusercontent.com/jlu5/icoextract/master/exe-thumbnailer.thumbnailer && \
         unzip /tmp/tilingshell/tilingshell@ferrarodomenico.com.zip -d /usr/share/gnome-shell/extensions/tilingshell@ferrarodomenico.com && \
         rm -rf /tmp/tilingshell && \
         sed -i 's@\[Desktop Entry\]@\[Desktop Entry\]\nNoDisplay=true@g' /usr/share/applications/org.gnome.SystemMonitor.desktop && \
@@ -717,6 +731,7 @@ FROM bazzite AS bazzite-deck
 ARG IMAGE_NAME="${IMAGE_NAME:-bazzite-deck}"
 ARG IMAGE_VENDOR="${IMAGE_VENDOR:-ublue-os}"
 ARG IMAGE_FLAVOR="${IMAGE_FLAVOR:-main}"
+ARG NVIDIA_FLAVOR=${NVIDIA_FLAVOR:-nvidia}""
 ARG KERNEL_FLAVOR="${KERNEL_FLAVOR:-fsync}"
 ARG KERNEL_VERSION="${KERNEL_VERSION:-6.10.4-201.fsync.fc40.x86_64}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
@@ -769,6 +784,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     hhd \
     hhd-ui \
     adjustor \
+    acpica-tools \
     vpower \
     ds-inhibit \
     steam_notif_daemon \
@@ -862,13 +878,14 @@ RUN /usr/libexec/containerbuild/image-info && \
     mkdir -p /var/tmp && chmod 1777 /var/tmp && \
     ostree container commit
 
-FROM ghcr.io/ublue-os/akmods-nvidia:${KERNEL_FLAVOR}-${FEDORA_MAJOR_VERSION}-${KERNEL_VERSION} AS nvidia-akmods
+FROM ghcr.io/ublue-os/akmods-${NVIDIA_FLAVOR}:${KERNEL_FLAVOR}-${FEDORA_MAJOR_VERSION}-${KERNEL_VERSION} AS nvidia-akmods
 
 FROM bazzite AS bazzite-nvidia
 
 ARG IMAGE_NAME="${IMAGE_NAME:-bazzite-nvidia}"
 ARG IMAGE_VENDOR="${IMAGE_VENDOR:-ublue-os}"
 ARG IMAGE_FLAVOR="${IMAGE_FLAVOR:-nvidia}"
+ARG NVIDIA_FLAVOR=${NVIDIA_FLAVOR:-nvidia}""
 ARG KERNEL_FLAVOR="${KERNEL_FLAVOR:-fsync}"
 ARG KERNEL_VERSION="${KERNEL_VERSION:-6.10.4-201.fsync.fc40.x86_64}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
@@ -887,7 +904,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         rocm-hip \
         rocm-opencl \
         rocm-clinfo && \
-    if [[ "${BASE_IMAGE_NAME}" == "kinoite" ]]; then \
+    if [[ "${BASE_IMAGE_NAME}" == "kinoite" && "$FEDORA_MAJOR_VERSION" -eq "40" ]]; then \
         rpm-ostree install \
             plasma-workspace-x11 \
     ; fi && \

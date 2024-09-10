@@ -4,9 +4,9 @@
 
 # General Information
 
->**For Handheld PC users only**:  View our [Handheld Wiki](https://universal-blue.discourse.group/docs?topic=1038) for post-installation setup, workarounds, and known issues on handheld hardware.
+>**For Handheld PC users only**:  View our [Handheld Wiki](../Handheld_and_HTPC_edition/Handheld_Wiki/index.md) for post-installation setup, workarounds, and known issues on handheld hardware.
 
-![Steam Gaming Mode UI|690x430](https://universal-blue.discourse.group/uploads/short-url/wxalr3SjaLxZ6NylOre0WQPASOO.jpeg)
+![Steam Gaming Mode UI|690x430](../img/Steam_Gaming_Mode_UI.jpeg)
 
 > Steam Gaming Mode requires a modern AMD graphics card or an Intel Arc graphics card.  Nvidia is **not** supported.
 
@@ -79,7 +79,7 @@ ujust configure-grub
 Select "unhide" to have GRUB appear on boot.
 
 
->View the [Rollback Guide](https://universal-blue.discourse.group/docs?topic=2644) for more information.
+>View the [Rollback Guide](../Installing_and_Managing_Software/Updates_Rollbacks_and_Rebasing/rolling_back_system_updates.md) for more information.
 
 ## How do I open the Quick Access Menu (QAM) with a physical keyboard?
 
@@ -96,8 +96,9 @@ This works on desktop mode including running Nested Gamescope and also works for
 
 ## Why do specific Decky Loader plugins not function on Bazzite?
 
-- Bazzite does not provide the functionality.
-  - [PauseGames](https://github.com/popsUlfr/SDH-PauseGames) requires a swapfile while Bazzite utilizes zram for example.
+Some plugins are built specifically for SteamOS or the Steam Deck, and won’t necessarily work on Bazzite or non-Deck hardware.
+
+For example, the [DeckMTP plugin](https://github.com/dafta/DeckMTP) only works on the Steam Deck, it will not work on alternative hardware.
 
 ## How do I use SteamDeckGyroDSU on hardware that isn't the Steam Deck?
 
@@ -106,9 +107,10 @@ You cannot use SteamDeckGyroDSU outside of the Steam Deck, but you can try disab
 ## How do I disable certain "Steam Deck" features that conflict with my setup?
 
 **Scenarios**:
-- *Example 1*: Keyboard and mouse is not working for this title.
-- *Example 2*: The game's launcher for adjusting video settings or adding mods does not launch.
-- *Example 3*: Certain features/options are not available for Steam Deck.
+
+- Example 1: Keyboard and mouse is not working for this title.
+- Example 2: The game’s launcher for adjusting video settings or adding mods does not launch.
+- Example 3: Certain features/options are not available for Steam Deck.
 
 Open the game's properties on Steam and **enter this launch option**:
 
@@ -217,12 +219,12 @@ Save it and place it in the `Desktop` directory.
 
 >**Note**: Not all of the information will be accurate in regards to Bazzite.
 
-https://help.steampowered.com/en/faqs/view/7DD4-C618-182E-0E49
+Valve wrote a [guide](https://help.steampowered.com/en/faqs/view/7DD4-C618-182E-0E49) for the Steam Deck which may have some relevant information in regards to Bazzite.
 
 <hr>
 
 **Documentation Contributors**: [HikariKnight](https://github.com/HikariKnight)
 
-**See also**: [Gaming Guide](https://universal-blue.discourse.group/docs?topic=31)
+**See also**: [Gaming Guide](../Gaming/index.md)
 
-<-- [**View all Bazzite documentation**](https://universal-blue.discourse.group/docs?topic=561)
+<-- [**View all Bazzite documentation**](../index.md)

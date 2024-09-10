@@ -4,9 +4,13 @@
 
 # ASUS ROG Ally / ASUS ROG Ally X
 
-![ally|603x500, 100%](https://universal-blue.discourse.group/uploads/short-url/oawrP3Gg6J5DAjfdsIYoWNO2juS.png)
+![ally|603x500, 100%](../../img/ally.png)
 
 **Status**: Gold
+
+## Installing Bazzite
+
+Read the [**Installing Bazzite on Handheld PCs documentation**](https://ublue-os.github.io/bazzite/General/Installation_Guide/Installing_Bazzite_for_Handheld_PCs/).
 
 ## Post-Installation Setup
 
@@ -53,9 +57,13 @@ ujust install-hhd-controller-glyph-theme
 
 <hr>
 
-# TDP Controls
+# Additional Information
 
-![TDP|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/ngp2BrayDZY50JGSQRDaJadXoke.jpeg)
+This applies to most handhelds running Bazzite.
+
+## TDP Controls
+
+![TDP|690x431, 75%](../../img/TDP.jpeg)
 
 There are a few options for TDP Controls that work with Bazzite:
 
@@ -65,18 +73,18 @@ There are a few options for TDP Controls that work with Bazzite:
 * [SimpleDeckyTDP](https://github.com/aarron-lee/SimpleDeckyTDP) supports TDP, GPU, Power Governor, and among other settings.
   * Also has a [graphical application](https://github.com/aarron-lee/SimpleDeckyTDP-Desktop), but needs to be manually installed.
 
-# How do I open the HHD Overlay?
+## How do I open the HHD Overlay?
 
-![Overlay|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/lmBCzvMHEetrpzRze6RjfSejrZq.jpeg)
+![Overlay|690x431, 75%](../../img/HHD_Overlay.jpeg)
 
-![Legion HHD|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/hkEd3nSflwOKlbrbs5XKAepdseZ.jpeg)
+![Settings Example|690x431, 75%](../../img/HHD_Settings_Example.jpeg)
 
 
 Press, hold, or double-tap the Quick Access Menu button.
 
 >**Note**: ASUS ROG Ally does not support **holding** for the QAM button!
 
-# Controller Information
+## Controller Information
 
 For most handheld hardware, besides the Steam Deck, emulation of a DualSense controller is used for full functionality. Double tap or hold the side menu button to access settings for controller emulation including switching to an Xbox controller with reduced functionality.
 
@@ -84,19 +92,19 @@ If your device has paddles, you will want to use the DualSense Edge controller. 
 
 Some games and emulators may need Steam Input **disabled** to work correctly with your controls.
 
-## Desktop Controls
+### Desktop Controls
 
 Desktop Mode Controller Layout:  It may not exist by default if Steam doesn't setup your handheld controller properly.  This can be fixed in Steam's controller settings.
 
-![desktop_controls_step_1|588x500, 75%](https://universal-blue.discourse.group/uploads/short-url/tGD8H8twME3FF862sBVJiwr3zvT.png)
+![desktop_controls_step_1|588x500, 75%](../../img/handheld_desktop_controls_1.png)
 
-![desktop_controls_step_2|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/q6X1XGTz9cizu5i5oXudSZbQaqg.png)
+![desktop_controls_step_2|690x431, 75%](../../img/handheld_desktop_controls_2.png)
 
-![desktop_controls_step_3|690x431, 75%](https://universal-blue.discourse.group/uploads/short-url/wEaGGVTtdZm3Aln3H3SaXI0rBLt.jpeg)
+![desktop_controls_step_3|690x431, 75%](../../img/handheld_desktop_controls_3.jpeg)
 
 Make sure to **apply** the desktop controls when you select them.
 
-# Force reboot device to prevent drive corruption if Steam crashes
+## Force reboot device to prevent drive corruption if Steam crashes
 >**Note**: This is only for the ASUS ROG Ally and Lenovo Legion Go.
 
 Hold down the "**select**" button on your device to force a reboot. This feature can be disabled in the overlay settings.
@@ -107,6 +115,6 @@ Hold down the "**select**" button on your device to force a reboot. This feature
 
 This page and all of the links to each specific handheld are **wikis**, edit it to add any relevant information you may have regarding the handheld and your experience with Bazzite on it.  Make sure to follow proper [documentation guidelines](https://universal-blue.discourse.group/docs?topic=890) and [contributing guidelines](https://universal-blue.discourse.group/docs?topic=81) before adding any edits.
 
-**See also**: [Steam Gaming Mode Overview](https://universal-blue.discourse.group/docs?topic=37)
+**See also**: [Steam Gaming Mode Overview](../Steam_Gaming_Mode.md)
 
-**<-- Back to [Handheld Wiki](https://universal-blue.discourse.group/docs?topic=1038)**
+**<-- Back to [Handheld Wiki](./index.md)**

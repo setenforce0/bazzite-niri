@@ -2,7 +2,7 @@
 <!--{"url_discourse": "htthttps://universal-blue.discourse.group/docs?topic=2743", "fetched_at": "2024-09-03 16:43:23.309649+00:00"}-->
 <!-- ANCHOR_END: METADATA -->
 
->**Note**:  Make sure to read the [**Installation Guide**](https://ublue-os.github.io/bazzite/General/Installation_Guide/) for your device first before proceeding.
+>**Note**:  Make sure to read the [**Installation Guide**](./index.md) for your device first before proceeding.
 
 # Two Methods: Method *A* or Method *B*
 
@@ -52,8 +52,8 @@ If you need a tutorial video for manual partitioning, watch this [tutorial]( htt
 1.  Select Installation Destination
 2.  Select `Advanced Custom(Blivet-GUI)` under Storage Configuration.
 3.  Create partitions and devices:
-   
-    ```
+
+```
     Manual Partitioning Scheme:
 
     mount point: /boot/efi  
@@ -76,7 +76,7 @@ If you need a tutorial video for manual partitioning, watch this [tutorial]( htt
 
     mount point: /var/home
     format:      btrfs (subvolume)
-    ```
+```
 
 >**Note about dual booting other Fedora Atomic Desktop images on the **same** drive**: If you want to dual boot another **Fedora libostree image** (like [Bluefin](https://projectbluefin.io/)) installed alongside Bazzite, then you would have to make an additional EFI partition and switch between them through the BIOS boot menu.
 
@@ -84,7 +84,7 @@ If you need a tutorial video for manual partitioning, watch this [tutorial]( htt
 
 # Dual Boot Post-Configuration Setup
 
->**Note:** [Handheld/HTPC](https://universal-blue.discourse.group/docs?topic=37) images hide GRUB by default, but the <kbd>Esc</kbd> key on a keyboard will unhide the GRUB menu without unhiding it with a `ujust` command.
+>**Note:** [Handheld/HTPC](../../Handheld_and_HTPC_edition/Steam_Gaming_Mode.md) images hide GRUB by default, but the <kbd>Esc</kbd> key on a keyboard will unhide the GRUB menu without unhiding it with a `ujust` command.
 
 ## Regenerate GRUB to show Windows Entry
 
