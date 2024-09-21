@@ -8,7 +8,7 @@ ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
 ARG SOURCE_IMAGE="${SOURCE_IMAGE:-$BASE_IMAGE_NAME-$BASE_IMAGE_FLAVOR}"
 ARG BASE_IMAGE="ghcr.io/ublue-os/${SOURCE_IMAGE}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-40}"
-ARG JUPITER_FIRMWARE_VERSION="${JUPITER_FIRMWARE_VERSION:-jupiter-20240813.1}"
+ARG JUPITER_FIRMWARE_VERSION="${JUPITER_FIRMWARE_VERSION:-jupiter-20240917.1}"
 ARG SHA_HEAD_SHORT="${SHA_HEAD_SHORT}"
 ARG VERSION_TAG="${VERSION_TAG}"
 ARG VERSION_PRETTY="${VERSION_PRETTY}"
@@ -28,7 +28,7 @@ ARG KERNEL_VERSION="${KERNEL_VERSION:-6.10.4-201.fsync.fc40.x86_64}"
 ARG IMAGE_BRANCH="${IMAGE_BRANCH:-main}"
 ARG BASE_IMAGE_NAME="${BASE_IMAGE_NAME:-kinoite}"
 ARG FEDORA_MAJOR_VERSION="${FEDORA_MAJOR_VERSION:-40}"
-ARG JUPITER_FIRMWARE_VERSION="${JUPITER_FIRMWARE_VERSION:-jupiter-20240813.1}"
+ARG JUPITER_FIRMWARE_VERSION="${JUPITER_FIRMWARE_VERSION:-jupiter-20240917.1}"
 ARG SHA_HEAD_SHORT="${SHA_HEAD_SHORT}"
 ARG VERSION_TAG="${VERSION_TAG}"
 ARG VERSION_PRETTY="${VERSION_PRETTY}"
@@ -150,6 +150,17 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
     --experimental \
     --from repo=updates \
         libdrm \
+        || true && \
+    rpm-ostree override replace \
+    --experimental \
+    --from repo=updates \
+        cpp \
+        libatomic \
+        libgcc \
+        libgfortran \
+        libgomp \
+        libobjc \
+        libstdc++ \
         || true && \
     rpm-ostree override replace \
     --experimental \
@@ -358,6 +369,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         python3-pip \
         libadwaita \
         duperemove \
+        cpulimit \
         sqlite \
         xwininfo \
         xrandr \
@@ -587,6 +599,7 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
             gnome-extensions-app \
             gnome-terminal \
             gnome-terminal-nautilus \
+            gnome-system-monitor \
             gnome-initial-setup \
             gnome-shell-extension-background-logo \
             gnome-shell-extension-apps-menu && \
@@ -597,7 +610,6 @@ RUN --mount=type=cache,dst=/var/cache/rpm-ostree \
         curl -Lo /usr/share/thumbnailers/exe-thumbnailer.thumbnailer https://raw.githubusercontent.com/jlu5/icoextract/master/exe-thumbnailer.thumbnailer && \
         unzip /tmp/tilingshell/tilingshell@ferrarodomenico.com.zip -d /usr/share/gnome-shell/extensions/tilingshell@ferrarodomenico.com && \
         rm -rf /tmp/tilingshell && \
-        sed -i 's@\[Desktop Entry\]@\[Desktop Entry\]\nNoDisplay=true@g' /usr/share/applications/org.gnome.SystemMonitor.desktop && \
         systemctl enable dconf-update.service \
     ; fi && \
     /usr/libexec/containerbuild/cleanup.sh && \
